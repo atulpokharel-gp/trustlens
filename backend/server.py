@@ -9,6 +9,10 @@ from emergentintegrations.llm.chat import LlmChat, UserMessage
 import json
 from datetime import datetime
 import asyncio
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = FastAPI(title="Trust Lens API", version="1.0.0")
 
