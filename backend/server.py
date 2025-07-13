@@ -27,7 +27,7 @@ app.add_middleware(
 
 # Database setup
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
-DB_NAME = os.environ.get("DB_NAME", "trust_lens_db")
+DB_NAME = os.environ.get("DB_NAME", "test_database")
 
 client = AsyncIOMotorClient(MONGO_URL)
 db = client[DB_NAME]
