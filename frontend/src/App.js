@@ -10,6 +10,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [dashboardData, setDashboardData] = useState(null);
   const [recentProducts, setRecentProducts] = useState([]);
+  const [productReviews, setProductReviews] = useState([]);
+  const [showReviews, setShowReviews] = useState(true);
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
 
