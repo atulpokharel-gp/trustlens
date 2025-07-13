@@ -317,7 +317,7 @@ async def analyze_product(request: ProductRequest):
 async def get_product(product_id: str):
     """Get product details with trust analysis"""
     
-    product = await products_collection.find_one({"id": product_id})
+    product = await products_collection.find_one({"id": product_id}, {"_id": 0})
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     
@@ -327,7 +327,7 @@ async def get_product(product_id: str):
 async def get_products(limit: int = 10, offset: int = 0):
     """Get all analyzed products"""
     
-    cursor = products_collection.find().skip(offset).limit(limit)
+    cursor = products_collection.find({}, {"_id": 0}).skip(offset).limit(limit)
     products = await cursor.to_list(length=limit)
     
     return {
@@ -341,7 +341,7 @@ async def get_products(limit: int = 10, offset: int = 0):
 async def get_product_reviews(product_id: str):
     """Get reviews for a specific product"""
     
-    cursor = reviews_collection.find({"product_id": product_id})
+    cursor = reviews_collection.find({"product_id": product_id}, {"_id": 0})
     reviews = await cursor.to_list(length=100)
     
     return {
