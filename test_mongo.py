@@ -12,7 +12,7 @@ load_dotenv()
 
 async def test_mongo():
     MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
-    DB_NAME = os.environ.get("DB_NAME", "trust_lens_db")
+    DB_NAME = os.environ.get("DB_NAME", "test_database")
     
     print(f"Connecting to: {MONGO_URL}")
     print(f"Database: {DB_NAME}")
