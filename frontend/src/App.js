@@ -65,6 +65,11 @@ function App() {
 
       const data = await response.json();
       setAnalysisResult(data);
+      
+      // Fetch reviews for this product
+      if (data.id) {
+        fetchProductReviews(data.id);
+      }
     } catch (error) {
       console.error('Error analyzing product:', error);
       alert('Error analyzing product. Please try again.');
